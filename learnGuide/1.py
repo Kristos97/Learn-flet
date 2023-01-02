@@ -1,11 +1,22 @@
 import flet
-from flet import Page, Text
+from flet import Page, Text, Row, Column
+
+from time import sleep
 
 def main(page : Page):
     page.title = "My First App with Flet"
 
-    txt = Text(value="Hello world !" )
-    page.controls.append(txt)
-    page.update()
-    return True
+    L=[]
+    page.add(
+        Column(controls=L)
+    )
+    
+
+    for i in range(10):
+        sleep(1)
+        print(i)
+        L.append(Text(value=f"Day{i}"))
+        page.update()
+        sleep(1)
+    
 flet.app(target=main)
